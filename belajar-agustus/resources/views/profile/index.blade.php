@@ -9,6 +9,7 @@
 <body>
     <h1>Ini adalah halaman profile</h1>
 
+    {{-- <a href="/profile">Profile</a> --}}
     <a href="{{route('profile-respon')}}">Profile</a>
     <a href="{{route('mobil', 'avanza')}}">Mobil saya</a>
 

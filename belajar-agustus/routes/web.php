@@ -14,10 +14,7 @@ Route::get('profile-halaman', function () {
     return view('profile.index');
 })->name('halaman.profile');
 
-Route::get('profile', function () {
-    //menampilkan respon profile 
-    return "ini adalah respon profile";
-})->name('profile-respon');
+
 
 // Route parameter yang wajib dideklarasikan
 Route::get('mobil/{params}', function ($mobil) {
@@ -40,7 +37,13 @@ Route::prefix('training')->group(function () {
         Route::get('laravel', function () {
             return "Ini adalah training laravel";
         });
+        Route::get('profile', function () {
+            //menampilkan respon profile 
+            return "ini adalah respon profile";
+        })->name('profile-respon');
     });
+
+    // route item yang ada pada group prefix training 
     Route::get('mtcna', function () {
         return "Ini adalah training mtcna";
     });
