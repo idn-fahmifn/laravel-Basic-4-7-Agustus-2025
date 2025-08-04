@@ -18,5 +18,11 @@ class BarangController extends Controller
         return "hallo ini adalah respon create barang.";
     }
 
+    public function profile()
+    {
+        $nama = "Fahmi FN";
+        return view('profile.profile', compact('nama'));
+    }
+
 
 }

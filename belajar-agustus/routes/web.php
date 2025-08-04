@@ -60,3 +60,6 @@ Route::get('barang', [BarangController::class, 'index'])
 
 Route::get('barang/create', [BarangController::class, 'create'])
 ->name('barang.create');
+
+Route::get('myprofile', [BarangController::class, 'profile'])
+->name('profile.saya');
