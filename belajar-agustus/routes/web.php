@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -51,3 +52,11 @@ Route::prefix('training')->group(function () {
         return "Ini adalah training ccna";
     });
 });
+
+
+// memanggil perintah yang ada di controller.
+Route::get('barang', [BarangController::class, 'index'])
+->name('barang');
+
+Route::get('barang/create', [BarangController::class, 'create'])
+->name('barang.create');
