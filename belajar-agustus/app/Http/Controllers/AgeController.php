@@ -17,7 +17,7 @@ class AgeController extends Controller
     public function proses(Request $request)
     {
         // arahkan ke halaman tujuan
-        // $request->session()->put('umur', $request->age);
+        $request->session()->put('umur', $request->age);
         return redirect()->route('age.sukses');
     }
 }
