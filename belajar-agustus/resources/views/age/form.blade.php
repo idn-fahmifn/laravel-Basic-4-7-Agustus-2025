@@ -11,13 +11,18 @@
 <body>
     <h1>Form Umur Kamu</h1>
     <p>Silakan masukan umur kamu dibawah.</p>
+
+    @if (session('gagal'))
+    <p>oops, {{session('gagal')}} </p>
+    @endif
+
     <form action="{{route('age.proses')}}" method="post">
         {{-- 
         setiap form method post => csrf
         - keamanan data
         - generate-token id
          --}}
-         
+
         @csrf
         <div class="">
             <label for="">Nama Kamu</label>
