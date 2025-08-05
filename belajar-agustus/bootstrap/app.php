@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AgeMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,6 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //Masukan middlware anda dibawah
+        // mendeklarasikan key middleware.
+        $middleware->alias([
+            // key age
+            'age' => AgeMiddleware::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

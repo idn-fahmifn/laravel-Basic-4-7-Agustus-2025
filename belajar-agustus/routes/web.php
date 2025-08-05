@@ -51,7 +51,7 @@ Route::get('barang/create', [BarangController::class, 'create'])
 ->name('barang.create');
 
 Route::get('myprofile', [BarangController::class, 'profile'])
-->name('profile.saya')->middleware('auth');
+->name('profile.saya')->middleware(['age']);
 
 // resource digunakan untuk fitur yang memiliki operasi crud
 Route::resource('kategori', KategoriController::class);
