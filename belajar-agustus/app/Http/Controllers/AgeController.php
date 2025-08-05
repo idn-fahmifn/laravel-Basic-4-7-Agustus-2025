@@ -19,9 +19,22 @@ class AgeController extends Controller
         // session -> penyimpan data (tidak permanen). 
         // hilang di waktu tertentu / ketika refresh
 
+        $request->validate([
+            'name' => ['required', 'string', 'min:4', 'max:10'],
+            'age' => ['required', 'numeric', 'min:10', 'max:50'],
+        ],[
+            // custom pesan
+            'name.min' => "Angkanya kurang mas",
+            'name.max' => "Angkanya kelebihan mas",
+            'age.max' => "Umurnya kelebihan mas",
+            'age.min' => "Umurnya kurang mas",
+        ]
+    );
+
         $request->session()
         ->put('umur', $request->age);
         return redirect()->route('age.sukses');
+        
 
         // return $request;
 

@@ -13,15 +13,21 @@
     <p>Silakan masukan umur kamu dibawah.</p>
 
     @if (session('gagal'))
-    <p>oops, {{session('gagal')}} </p>
+        <p>oops, {{ session('gagal') }} </p>
     @endif
 
-    <form action="{{route('age.proses')}}" method="post">
+    <form action="{{ route('age.proses') }}" method="post">
         {{-- 
         setiap form method post => csrf
         - keamanan data
         - generate-token id
          --}}
+
+        <ul>
+            @foreach ($errors->all() as $item)
+                <li>{{ $item }}</li>
+            @endforeach
+        </ul>
 
         @csrf
         <div class="">
