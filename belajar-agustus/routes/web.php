@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgeController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
@@ -58,3 +59,10 @@ Route::resource('kategori', KategoriController::class);
 
 // menampilkan function print yang ada pada controller resource
 Route::get('kategori/cetak/action', [KategoriController::class, 'fahmi'])->name('cetak.kategori');
+
+
+// halaman form 
+Route::get('form', [AgeController::class, 'form'])->name('age.form');
+Route::get('sukses', [AgeController::class, 'sukses'])
+->middleware('age')->name('age.sukses');
+Route::post('proses', [AgeController::class, 'proses'])->name('age.proses');

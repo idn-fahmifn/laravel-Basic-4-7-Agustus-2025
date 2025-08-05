@@ -18,6 +18,15 @@ class AgeMiddleware
         // aturan untuk mengkases route terntu.
         // kondisi
 
+        $umur = $request->session()->get('umur');
+
+        if ($umur <= 18) {
+            return back();
+            // kalo kurang dari 18, akan dikembalikan ke halaman form
+        }
+        // jika 18 tahun ke 
         return $next($request);
+        // respon untuk mengizinkan ke route selanjutnya
+
     }
 }
