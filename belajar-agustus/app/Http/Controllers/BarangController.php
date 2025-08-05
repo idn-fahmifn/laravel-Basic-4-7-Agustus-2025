@@ -21,10 +21,13 @@ class BarangController extends Controller
     public function profile()
     {
         $nama = "Fahmi FN";
-        return view('profile.profile', compact('nama'));
+
+        // return view('profile.profile', compact('nama'));
+        return view('profile.profile',[
+            'myname' => $nama
+        ]);
+
     }
-
-
 
 
 }

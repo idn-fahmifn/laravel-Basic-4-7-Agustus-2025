@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,10 +11,10 @@ Route::get('/', function () {
 // mendefinisikan route
 // method get => menampilkan sebuah data atau halamamn.
 
-Route::get('profile-halaman', function () {
+Route::get('halaman-profile', function () {
     //menampilkan halaman index di folder profile
     return view('profile.index');
-})->name('halaman.profile');
+})->middleware('nama_middlware')->name('halaman.profile');
 
 
 
@@ -32,18 +33,6 @@ Route::get('motor/{params?}', function ($motor = null) {
 // membuat group pada routing
 // digunakan ketika ada sebuah route yang memiliki kesamaan.
 Route::prefix('training')->group(function () {
-
-    // grup di dalam grup
-    Route::prefix('programming')->group(function () {
-        Route::get('laravel', function () {
-            return "Ini adalah training laravel";
-        });
-        Route::get('profile', function () {
-            //menampilkan respon profile 
-            return "ini adalah respon profile";
-        })->name('profile-respon');
-    });
-
     // route item yang ada pada group prefix training 
     Route::get('mtcna', function () {
         return "Ini adalah training mtcna";
@@ -62,4 +51,10 @@ Route::get('barang/create', [BarangController::class, 'create'])
 ->name('barang.create');
 
 Route::get('myprofile', [BarangController::class, 'profile'])
-->name('profile.saya');
+->name('profile.saya')->middleware('auth');
+
+// resource digunakan untuk fitur yang memiliki operasi crud
+Route::resource('kategori', KategoriController::class);
+
+// menampilkan function print yang ada pada controller resource
+Route::get('kategori/cetak/action', [KategoriController::class, 'fahmi'])->name('cetak.kategori');

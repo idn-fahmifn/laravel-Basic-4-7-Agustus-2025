@@ -11,7 +11,6 @@
 
     {{-- <a href="/profile">Profile</a> --}}
     <a href="{{route('profile-respon')}}">Profile</a>
-    <a href="{{route('mobil', 'avanza')}}">Mobil saya</a>
 
 
 </body>
