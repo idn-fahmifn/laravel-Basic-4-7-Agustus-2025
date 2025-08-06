@@ -30,13 +30,16 @@ class CategoryController extends Controller
     {
         // validasi untuk form input
         $request->validate([
-            'nama_kategori' => ['required', 'string', 'min:3', 'max:50', 'unique:categories']
+            'category_name' => ['required', 'string', 'min:3', 'max:50', 'unique:categories']
         ]);
 
         // untuk menyimpan.
         Category::create([
-            'category_name' => $request->input('nama_kategori')
+            'category_name' => $request->input('category_name')
         ]);
+
+        return back()->with('success','Data Kategori sudah ditambahkan');
+
     }
 
     /**

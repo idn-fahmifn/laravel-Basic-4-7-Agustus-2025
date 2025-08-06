@@ -49,12 +49,12 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">Nama Kategori</label>
-                            <input type="text" name="nama_kategori" class="form-control">
+                            <input type="text" name="category_name" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
 
