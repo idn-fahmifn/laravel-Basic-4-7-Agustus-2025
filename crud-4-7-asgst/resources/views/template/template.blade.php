@@ -37,8 +37,8 @@
     </nav>
 
     {{-- area content --}}
-    <div class="container p-4 mt-4" style="background:#cacaca" >
-        
+    <div class="container mt-4" >
+        @yield('content')
     </div>
 
 </body>
