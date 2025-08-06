@@ -12,7 +12,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-warning">
+    <nav class="navbar navbar-expand-lg" style="background: #cc7000">
         <div class="container">
             <a class="navbar-brand" href="#">Simple CRUD</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -28,13 +28,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Category</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Product</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    {{-- area content --}}
+    <div class="container p-4 mt-4" style="background:#cacaca" >
+        
+    </div>
 
 </body>
 
