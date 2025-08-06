@@ -28,7 +28,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validasi untuk form input
+        $request->validate([
+            'nama_kategori' => ['required', 'string', 'min:3', 'max:50', 'unique:categories']
+        ]);
+
+        // untuk menyimpan.
+        Category::create([
+            'category_name' => $request->input('nama_kategori')
+        ]);
     }
 
     /**
