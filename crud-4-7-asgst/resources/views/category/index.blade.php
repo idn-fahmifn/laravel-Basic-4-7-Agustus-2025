@@ -2,7 +2,15 @@
 
 @section('content')
     <div class="card p-4">
-        <div class="card-title">Kategori Produk</div>
+        <div class="card-title d-flex justify-content-between">
+
+            <h3>Kategori Produk</h3>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Tambah Kategori
+            </button>
+        </div>
 
         <div class="table-responsive">
             <table class="table table-hover">
