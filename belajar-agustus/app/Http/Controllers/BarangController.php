@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
     public function index()
     {
-        // menampilkan data string
-        return "hallo ini adalah respon barang.";
+        // menampilkan data barang yang ada di database.
+        $data = Barang::all();
+        return view('barang.index', 
+        compact('data'));
+
     }
 
     public function create()
