@@ -20,16 +20,15 @@
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>lorem</td>
-                        <td>test</td>
-                        <td>test</td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                    </tr>
+                    @foreach ($data as $item)
+                        <tr>
+                            <td>{{$item->category_name}}</td>
+                            <td>0 Produk</td>
+                            <td>
+                                <a href="" class="btn btn-info">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -44,7 +43,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{route('category.store')}}" method="post">
+                <form action="{{ route('category.store') }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
