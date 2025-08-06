@@ -4,31 +4,32 @@
     <div class="card p-4">
         <div class="card-title d-flex justify-content-between mb-4">
 
-            <h5>Kategori Produk</h5>
+            <h5>{{ $data->category_name }}</h5>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCategory">
-                Tambah Kategori
-            </button>
+            <form action="{{route('category.destroy', $data->id)}}" method="post">
+                @csrf
+                @method('delete')
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCategory">
+                    Edit
+                </button>
+                <!-- Button trigger modal -->
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Hapus?')">
+                    Delete
+                </button>
+            </form>
         </div>
 
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
-                    <th>Nama Kategori</th>
-                    <th>Jumlah Produk</th>
-                    <th>Action</th>
+                    <th>Nama Produk</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
-                        <tr>
-                            <td>{{$item->category_name}}</td>
-                            <td>0 Produk</td>
-                            <td>
-                                <a href="{{route('category.show', $item)}}" class="btn btn-info">Detail</a>
-                            </td>
-                        </tr>
-                    @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -43,12 +44,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('category.store') }}" method="post">
+                <form action="{{ route('category.update', $data->id) }}" method="post">
                     @csrf
+                    @method('put')
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">Nama Kategori</label>
-                            <input type="text" name="category_name" class="form-control">
+                            <input type="text" name="category_name" value="{{$data->category_name}}" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">

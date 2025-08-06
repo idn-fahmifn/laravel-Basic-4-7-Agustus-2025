@@ -4,31 +4,24 @@
     <div class="card p-4">
         <div class="card-title d-flex justify-content-between mb-4">
 
-            <h5>Kategori Produk</h5>
+            <h5>Data Produk</h5>
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCategory">
-                Tambah Kategori
+                Tambah Produk
             </button>
         </div>
 
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
-                    <th>Nama Kategori</th>
-                    <th>Jumlah Produk</th>
-                    <th>Action</th>
+                    <th>Nama Produk</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                    <th>Pilihan</th>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
-                        <tr>
-                            <td>{{$item->category_name}}</td>
-                            <td>0 Produk</td>
-                            <td>
-                                <a href="{{route('category.show', $item)}}" class="btn btn-info">Detail</a>
-                            </td>
-                        </tr>
-                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
