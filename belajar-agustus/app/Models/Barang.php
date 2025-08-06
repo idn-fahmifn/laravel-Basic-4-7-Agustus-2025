@@ -14,9 +14,11 @@ class Barang extends Model
     //di tabel ada apa saja?
     protected $table = 'barang';
 
-    protected $fillable = 
-    [
-        // field yang ada pada tabel.
-        'nama_barang', 'merk', 'stok', 'harga', 'kategori'
-    ];
+    protected $guarded;
+
+    // protected $fillable = 
+    // [
+    //     // field yang ada pada tabel.
+    //     'nama_barang', 'merk', 'stok', 'harga', 'kategori'
+    // ];
 }
