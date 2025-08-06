@@ -63,9 +63,21 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        // validasi untuk form input
+        $request->validate([
+            'category_name' => ['required', 'string', 'min:3', 'max:50', 'unique:categories']
+        ]);
+
+        $data = Category::find($id);
+        
+        $data->update([
+            'category_name' => $request->category_name
+        ]);
+        
+
+        return back()->with('success','Data Kategori sudah ditambahkan');
     }
 
     /**
