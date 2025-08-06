@@ -6,13 +6,16 @@
 
             <h5>{{ $data->category_name }}</h5>
 
-            <form action="" method="post">
+            <form action="{{route('category.destroy', $data->id)}}" method="post">
+                @csrf
+                @method('delete')
+
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCategory">
                     Edit
                 </button>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Hapus?')">
                     Delete
                 </button>
             </form>

@@ -25,7 +25,7 @@
                             <td>{{$item->category_name}}</td>
                             <td>0 Produk</td>
                             <td>
-                                <a href="" class="btn btn-info">Detail</a>
+                                <a href="{{route('category.show', $item->id)}}" class="btn btn-info">Detail</a>
                             </td>
                         </tr>
                     @endforeach

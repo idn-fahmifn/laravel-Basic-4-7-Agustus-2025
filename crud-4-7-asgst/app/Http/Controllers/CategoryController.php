@@ -71,7 +71,7 @@ class CategoryController extends Controller
         ]);
 
         $data = Category::find($id);
-        
+
         $data->update([
             'category_name' => $request->category_name
         ]);
@@ -83,8 +83,12 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $data = Category::find($id);
+        $data->delete();
+        return redirect()
+        ->route('category.index')
+        ->with('success', 'Data kategori berhasil dihapus');
     }
 }
