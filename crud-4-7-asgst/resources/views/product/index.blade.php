@@ -18,10 +18,19 @@
                     <th>Nama Produk</th>
                     <th>Harga</th>
                     <th>Stok</th>
-                    <th>Pilihan</th>
+                    <th>Gambar Produk</th>
                 </thead>
                 <tbody>
-                    
+                    @foreach ($data as $item)
+                    <tr>
+                        <td>{{$item->product_name}}</td>
+                        <td>IDR. {{ number_format($item->price) }}</td>
+                        <td>{{$item->qty}}</td>
+                        <td>
+                            <img src="{{asset('storage/images/product/'.$item->image)}}" alt="Gambar Produk" width="50">
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
