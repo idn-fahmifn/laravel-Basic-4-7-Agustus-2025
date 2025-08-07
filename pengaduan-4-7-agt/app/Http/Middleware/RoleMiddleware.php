@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class RoleMiddleware
@@ -15,6 +16,13 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+
+        // kondisi ketika admin yang login. maka akan diteruskan.
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return $next($request);
+        }
+
+        // jika bukan admin
+        return redirect()->route('dashboard.user');
     }
 }
