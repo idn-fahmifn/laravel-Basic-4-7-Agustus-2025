@@ -21,6 +21,9 @@ Route::prefix('user')->middleware(['auth', 'verified'])->group(function(){
     // create pengaduan
     Route::get('buat-pengaduan', [PengaduanController::class, 'create'])
     ->name('create.pengaduan');
+
+    Route::post('pengaduan', [PengaduanController::class, 'store'])
+    ->name('store.pengaduan');
 });
 
 

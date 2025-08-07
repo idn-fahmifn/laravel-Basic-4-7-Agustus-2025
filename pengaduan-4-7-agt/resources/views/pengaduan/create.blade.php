@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form method="post" action="" class="mt-6 space-y-6" enctype="multipart/form-data">
+                    <form method="post" action="{{route('store.pengaduan')}}" class="mt-6 space-y-6" enctype="multipart/form-data">
                         @csrf
                         <div class="mt-4">
                             <x-input-label for="judul_laporan" :value="__('Judul Laporan')" />

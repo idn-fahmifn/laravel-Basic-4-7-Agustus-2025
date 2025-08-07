@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengaduan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PengaduanController extends Controller
 {
@@ -34,6 +35,8 @@ class PengaduanController extends Controller
 
             $input['dokumentasi'] = $nama;
         }
+
+        $input['user_id'] = Auth::user()->id;
 
         Pengaduan::create($input);
 
