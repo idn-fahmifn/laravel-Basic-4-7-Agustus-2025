@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengaduan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,14 @@ class PengaduanController extends Controller
             $nama = 'dokumentasi_laporan_' . Carbon::now()
             ->format('Ymdhis') . random_int(10, 100) .'.'. $ext; //nama setelah diupload
             $gambar->storeAs($path, $nama);
+
+            $input['dokumentasi'] = $nama;
         }
+
+        Pengaduan::create($input);
+
+        return redirect()->route('dashboard.user');
+
 
     }
 
