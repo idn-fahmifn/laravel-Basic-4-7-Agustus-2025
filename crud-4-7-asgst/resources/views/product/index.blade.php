@@ -45,7 +45,7 @@
                         </div>
                          <div class="form-group mt-4">
                             <label for="">Kategori Produk</label>
-                            <select name="category_id" class="form-control">
+                            <select name="category_id" class="form-control" required>
                                 <option value="" disabled>Pilih Kategori</option>
                                 @foreach ($category as $item)
                                     <option value="{{$item->id}}">{{$item->category_name}}</option>

@@ -47,11 +47,12 @@ class ProductController extends Controller
             $gambar = $request->file('image'); //file yang diupload
             $path = 'public/images/product'; //path tempat menyimpan
             $ext = $gambar->getClientOriginalExtension(); //mengambil nilai ext
-            $nama = 'gambar_produk_' . Carbon::now()->format('Ymdhis') . random_int(10, 100) . $ext; //nama setelah diupload
+            $nama = 'gambar_produk_' . Carbon::now()->format('Ymdhis') . random_int(10, 100) .'.'. $ext; //nama setelah diupload
             $gambar->storeAs($path, $nama);
         }
 
-        dd($request);
+        // dd($request);
+        return $request;
     }
 
     /**
