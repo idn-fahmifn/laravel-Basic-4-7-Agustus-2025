@@ -43,6 +43,16 @@
                             <label for="">Nama Produk</label>
                             <input type="text" name="product_name" required class="form-control">
                         </div>
+                         <div class="form-group mt-4">
+                            <label for="">Kategori Produk</label>
+                            <select name="category_id" class="form-control">
+                                <option value="" disabled>Pilih Kategori</option>
+                                @foreach ($category as $item)
+                                    <option value="{{$item->id}}">{{$item->category_name}}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
                         <div class="form-group mt-4">
                             <label for="">Jumlah</label>
                             <input type="number" name="qty" required class="form-control">
