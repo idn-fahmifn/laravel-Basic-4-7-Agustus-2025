@@ -41,18 +41,25 @@ class ProductController extends Controller
             'price' => ['required', 'numeric ', 'min:0'],
             'desc' => ['required'],
         ]);
-
         // ketika ada file gambar yang diupload
         if ($request->hasFile('image')) {
             $gambar = $request->file('image'); //file yang diupload
             $path = 'public/images/product'; //path tempat menyimpan
             $ext = $gambar->getClientOriginalExtension(); //mengambil nilai ext
-            $nama = 'gambar_produk_' . Carbon::now()->format('Ymdhis') . random_int(10, 100) .'.'. $ext; //nama setelah diupload
+            $nama = 'gambar_produk_' . Carbon::now()
+            ->format('Ymdhis') . random_int(10, 100) .'.'. $ext; //nama setelah diupload
             $gambar->storeAs($path, $nama);
         }
+        Product::create([
+            'product_name' => $request->input('product_name'),
+            'category_id' => $request->input('category_id'),
+            'qty' => $request->input('qty'),
+            'price' => $request->input('price'),
+            'desc' => $request->input('desc'),
+            'image' => $nama
+        ]);
 
-        // dd($request);
-        return $request;
+        return back()->with('success', 'Data berhasil ditambah');
     }
 
     /**
