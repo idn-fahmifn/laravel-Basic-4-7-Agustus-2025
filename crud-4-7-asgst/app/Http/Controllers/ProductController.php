@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -29,7 +30,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_name' => ['required','string','min:3', 'max:10'],
+            'image' => ['required','file', 'max:10240', 'mimes:jpeg,jpg,png,svg,webp,heic'],
+            'qty' => ['required','numeric ','min:0', 'max:100'],
+            'price' => ['required','numeric ','min:0'],
+            'desc' => ['required'],
+        ]);
+
+        // ketika ada file gambar yang diupload
+        if($request->hasFile('image'))
+        {
+            $gambar = $request->file('image'); //file yang diupload
+            $path = 'public/images/product'; //path tempat menyimpan
+            $ext = $gambar->getClientOriginalExtension(); //mengambil nilai ext
+            $nama = 'gambar_produk_'.Carbon::now()->format('Ymdhis').random_int(10,100).$ext; //nama setelah diupload
+
+            $gambar->storeAs($path, $nama);
+
+        }
+
     }
 
     /**
